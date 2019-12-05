@@ -1,0 +1,116 @@
+<html>
+
+    <head>
+        <title>時間割表</title>
+    </head>
+    <body>
+        <style>
+            table{
+              border-collapse: collapse;
+              border-spacing: 0;
+              table-layout: fixed;
+              width: 1100px;
+            }
+
+            table th{
+              text-align: center;
+              padding: 7px 0;
+              border-right:solid 1px #ddd;
+              border-left:solid 1px #ddd;
+              width: 155px;
+            }
+
+            .head-color{
+              background:#ffebcd;
+            }
+
+            .line-color{
+            background:#fffaf0;
+            }
+        </style>
+
+        <h1>サイト</h1>
+
+    {% for timetable in timetables %}
+        <div>
+            <font size='7'>{{ timetable.title }}時間割表</font>
+                <hr width='500' align='left' color='#afeeee'>
+                    <table border='1'>
+	    <tbody>
+	        <tr class='head-color'>
+	            <td>曜日/限</td>
+     	            <td>月曜日</td>
+	            <td>火曜日</td>
+	            <td>水曜日</td>
+	            <td>木曜日</td>
+	            <td>金曜日</td>
+	        </tr>
+　　　　	        <tr>
+	            <td class='line-color'>１限</td>
+	            <td>{{ timetable.mon_1st}}<br>教室：{{timetable.mon_1st_name}}<br><form action="{% url 'mon1_form' pk=timetable.pk %}" method="POST">{% csrf_token %}
+	            <input type="submit" name='button1' value="出席"><input type="submit" name='button2' value="欠席"></form>出席：{{timetable.mon_1st_attend}}欠席：{{timetable.mon_1st_abesen}}</td>
+	            <td>{{ timetable.tue_1st}}<br>教室：{{timetable.tue_1st_name}}<br><form action="{% url 'tue1_form' pk=timetable.pk %}" method="POST">{% csrf_token %}
+	            <input type="submit" name='button1' value="出席"><input type="submit" name='button2' value="欠席"></form>出席：{{timetable.tue_1st_attend}}欠席：{{timetable.tue_1st_abesen}}</td>
+	            <td>{{ timetable.wed_1st}}<br>教室：{{timetable.wed_1st_name}}<br><form action="{% url 'wed1_form' pk=timetable.pk %}" method="POST">{% csrf_token %}
+	            <input type="submit" name='button1' value="出席"><input type="submit" name='button2' value="欠席"></form>出席：{{timetable.wed_1st_attend}}欠席：{{timetable.wed_1st_abesen}}</td>
+	            <td>{{ timetable.thu_1st}}<br>教室：{{timetable.thu_1st_name}}<br><form action="{% url 'thu1_form' pk=timetable.pk %}" method="POST">{% csrf_token %}
+	            <input type="submit" name='button1' value="出席"><input type="submit" name='button2' value="欠席"></form>出席：{{timetable.thu_1st_attend}}欠席：{{timetable.thu_1st_abesen}}</td>
+	            <td>{{ timetable.fri_1st}}<br>教室：{{timetable.fri_1st_name}}<br><form action="{% url 'fri1_form' pk=timetable.pk %}" method="POST">{% csrf_token %}
+	            <input type="submit" name='button1' value="出席"><input type="submit" name='button2' value="欠席"></form>出席：{{timetable.fri_1st_attend}}欠席：{{timetable.fri_1st_abesen}}</td>
+	        </tr>
+　　　　	        <tr>
+	            <td class='line-color'>２限</td>
+	            <td>{{ timetable.mon_2nd}}<br>教室：{{timetable.mon_2nd_name}}<br><form action="{% url 'mon2_form' pk=timetable.pk %}" method="POST">{% csrf_token %}
+	            <input type="submit" name='button1' value="出席"><input type="submit" name='button2' value="欠席"></form>出席：{{timetable.mon_2nd_attend}}欠席：{{timetable.mon_2nd_abesen}}</td>
+	            <td>{{ timetable.tue_2nd}}<br>教室：{{timetable.tue_2nd_name}}<br><form action="{% url 'tue2_form' pk=timetable.pk %}" method="POST">{% csrf_token %}
+	            <input type="submit" name='button1' value="出席"><input type="submit" name='button2' value="欠席"></form>出席：{{timetable.tue_2nd_attend}}欠席：{{timetable.tue_2nd_abesen}}</td>
+	            <td>{{ timetable.wed_2nd}}<br>教室：{{timetable.wed_2nd_name}}<br><form action="{% url 'wed2_form' pk=timetable.pk %}" method="POST">{% csrf_token %}
+	            <input type="submit" name='button1' value="出席"><input type="submit" name='button2' value="欠席"></form>出席：{{timetable.wed_2nd_attend}}欠席：{{timetable.wed_2nd_abesen}}</td>
+	            <td>{{ timetable.thu_2nd}}<br>教室：{{timetable.thu_2nd_name}}<br><form action="{% url 'thu2_form' pk=timetable.pk %}" method="POST">{% csrf_token %}
+	            <input type="submit" name='button1' value="出席"><input type="submit" name='button2' value="欠席"></form>出席：{{timetable.thu_2nd_attend}}欠席：{{timetable.thu_2nd_abesen}}</td>
+	            <td>{{ timetable.fri_2nd}}<br>教室：{{timetable.fri_2nd_name}}<br><form action="{% url 'fri2_form' pk=timetable.pk %}" method="POST">{% csrf_token %}
+	            <input type="submit" name='button1' value="出席"><input type="submit" name='button2' value="欠席"></form>出席：{{timetable.fri_2nd_attend}}欠席：{{timetable.fri_2nd_abesen}}</td>
+	        </tr>
+　　　　	        <tr>
+	            <td class='line-color'>3限</td>
+	            <td>{{ timetable.mon_3rd}}<br>教室：{{timetable.mon_3rd_name}}<br><form action="{% url 'mon3_form' pk=timetable.pk %}" method="POST">{% csrf_token %}
+	            <input type="submit" name='button1' value="出席"><input type="submit" name='button2' value="欠席"></form>出席：{{timetable.mon_3rd_attend}}欠席：{{timetable.mon_3rd_abesen}}</td>
+	            <td>{{ timetable.tue_3rd}}<br>教室：{{timetable.tue_3rd_name}}<br><form action="{% url 'tue3_form' pk=timetable.pk %}" method="POST">{% csrf_token %}
+	            <input type="submit" name='button1' value="出席"><input type="submit" name='button2' value="欠席"></form>出席：{{timetable.tue_3rd_attend}}欠席：{{timetable.tue_3rd_abesen}}</td>
+	            <td>{{ timetable.wed_3rd}}<br>教室：{{timetable.wed_3rd_name}}<br><form action="{% url 'wed3_form' pk=timetable.pk %}" method="POST">{% csrf_token %}
+	            <input type="submit" name='button1' value="出席"><input type="submit" name='button2' value="欠席"></form>出席：{{timetable.wed_3rd_attend}}欠席：{{timetable.wed_3rd_abesen}}</td>
+	            <td>{{ timetable.thu_3rd}}<br>教室：{{timetable.thu_3rd_name}}<br><form action="{% url 'thu3_form' pk=timetable.pk %}" method="POST">{% csrf_token %}
+	            <input type="submit" name='button1' value="出席"><input type="submit" name='button2' value="欠席"></form>出席：{{timetable.thu_3rd_attend}}欠席：{{timetable.thu_3rd_abesen}}</td>
+	            <td>{{ timetable.fri_3rd}}<br>教室：{{timetable.fri_3rd_name}}<br><form action="{% url 'fri3_form' pk=timetable.pk %}" method="POST">{% csrf_token %}
+	            <input type="submit" name='button1' value="出席"><input type="submit" name='button2' value="欠席"></form>出席：{{timetable.fri_3rd_attend}}欠席：{{timetable.fri_3rd_abesen}}</td>
+	        </tr>
+　　　　	        <tr>
+	            <td class='line-color'>４限</td>
+	            <td>{{ timetable.mon_4th}}<br>教室：{{timetable.mon_4th_name}}<br><form action="{% url 'mon4_form' pk=timetable.pk %}" method="POST">{% csrf_token %}
+	            <input type="submit" name='button1' value="出席"><input type="submit" name='button2' value="欠席"></form>出席：{{timetable.mon_4th_attend}}欠席：{{timetable.mon_4th_abesen}}</td>
+	            <td>{{ timetable.tue_4th}}<br>教室：{{timetable.tue_4th_name}}<br><form action="{% url 'tue4_form' pk=timetable.pk %}" method="POST">{% csrf_token %}
+	            <input type="submit" name='button1' value="出席"><input type="submit" name='button2' value="欠席"></form>出席：{{timetable.tue_4th_attend}}欠席：{{timetable.tue_4th_abesen}}</td>
+	            <td>{{ timetable.wed_4th}}<br>教室：{{timetable.wed_4th_name}}<br><form action="{% url 'wed4_form' pk=timetable.pk %}" method="POST">{% csrf_token %}
+	            <input type="submit" name='button1' value="出席"><input type="submit" name='button2' value="欠席"></form>出席：{{timetable.wed_4th_attend}}欠席：{{timetable.wed_4th_abesen}}</td>
+	            <td>{{ timetable.thu_4th}}<br>教室：{{timetable.thu_4th_name}}<br><form action="{% url 'thu4_form' pk=timetable.pk %}" method="POST">{% csrf_token %}
+	            <input type="submit" name='button1' value="出席"><input type="submit" name='button2' value="欠席"></form>出席：{{timetable.thu_4th_attend}}欠席：{{timetable.thu_4th_abesen}}</td>
+	            <td>{{ timetable.fri_4th}}<br>教室：{{timetable.fri_4th_name}}<br><form action="{% url 'fri4_form' pk=timetable.pk %}" method="POST">{% csrf_token %}
+	            <input type="submit" name='button1' value="出席"><input type="submit" name='button2' value="欠席"></form>出席：{{timetable.fri_4th_attend}}欠席：{{timetable.fri_4th_abesen}}</td>
+	        </tr>
+　　　　	        <tr>
+	            <td class='line-color'>５限</td>
+	            <td>{{ timetable.mon_5th}}<br>教室：{{timetable.mon_5th_name}}<br><form action="{% url 'mon5_form' pk=timetable.pk %}" method="POST">{% csrf_token %}
+	            <input type="submit" name='button1' value="出席"><input type="submit" name='button2' value="欠席"></form>出席：{{timetable.mon_5th_attend}}欠席：{{timetable.mon_5th_abesen}}</td>
+	            <td>{{ timetable.tue_5th}}<br>教室：{{timetable.tue_5th_name}}<br><form action="{% url 'tue5_form' pk=timetable.pk %}" method="POST">{% csrf_token %}
+	            <input type="submit" name='button1' value="出席"><input type="submit" name='button2' value="欠席"></form>出席：{{timetable.tue_5th_attend}}欠席：{{timetable.tue_5th_abesen}}</td>
+	            <td>{{ timetable.wed_5th}}<br>教室：{{timetable.wed_5th_name}}<br><form action="{% url 'wed5_form' pk=timetable.pk %}" method="POST">{% csrf_token %}
+	            <input type="submit" name='button1' value="出席"><input type="submit" name='button2' value="欠席"></form>出席：{{timetable.wed_5th_attend}}欠席：{{timetable.wed_5th_abesen}}</td>
+	            <td>{{ timetable.thu_5th}}<br>教室：{{timetable.thu_5th_name}}<br><form action="{% url 'thu5_form' pk=timetable.pk %}" method="POST">{% csrf_token %}
+	            <input type="submit" name='button1' value="出席"><input type="submit" name='button2' value="欠席"></form>出席：{{timetable.thu_5th_attend}}欠席：{{timetable.thu_5th_abesen}}</td>
+	            <td>{{ timetable.fri_5th}}<br>教室：{{timetable.fri_5th_name}}<br><form action="{% url 'fri5_form' pk=timetable.pk %}" method="POST">{% csrf_token %}
+	            <input type="submit" name='button1' value="出席"><input type="submit" name='button2' value="欠席"></form>出席：{{timetable.fri_5th_attend}}欠席：{{timetable.fri_5th_abesen}}</td>
+	        </tr>
+        </div>
+    {% endfor %}
+    </body>
+</html>
